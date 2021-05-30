@@ -84,6 +84,8 @@ while True:
         print("Option 1. Scan for all network devices on your subnet")
         print("-" * 80)
         print("Option 2. Scan Open Ports on your device")
+        print("-" * 80)
+        print("IF YOU WOULD LIKE TO LEAVE THIS TOOL - PLEASE TYPE --> 'Quit'")
         print("-" * 80)   
         option = input ("What option would you like? (Please type the option number - Like '1') - ")
     elif option == "2":
@@ -94,6 +96,8 @@ while True:
         print("-" * 80)
         print("Option 2. Scan Open Ports on your device")   
         print("-" * 80)
+        print("IF YOU WOULD LIKE TO LEAVE THIS TOOL - PLEASE TYPE --> 'Quit'")
+        print("-" * 80)  
         option = input ("What option would you like? (Please type the option number - Like '1') - ")
     elif option == "Quit":
         break
@@ -109,5 +113,7 @@ while True:
         print("-" * 80)
         print("Option 2. Scan Open Ports on your device")   
         print("-" * 80)
+        print("IF YOU WOULD LIKE TO LEAVE THIS TOOL - PLEASE TYPE --> 'Quit'")
+        print("-" * 80)  
         option = input ("What option would you like? (Please type the option number - Like '1') - ")
 
