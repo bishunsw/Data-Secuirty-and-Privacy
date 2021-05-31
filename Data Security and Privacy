@@ -3,6 +3,7 @@ import sys
 import socket
 import pyfiglet
 import re
+import time
 
 def clean():
     os.system('clear')
@@ -118,60 +119,55 @@ def portscanner2():
 ascii_banner = pyfiglet.figlet_format("Welcome to Michael Bishop's Recon Toolkit")
 print(ascii_banner)
 
-print("-" * 80)
-print("Option 1. Scan for all network devices on your subnet")
-print("-" * 80)
-print("Option 2. Scan Open Ports on your device")
-print("-" * 80)
-print("IF YOU WOULD LIKE TO LEAVE THIS TOOL - PLEASE TYPE --> 'Quit'")
-print("-" * 80)
+def options():
+    print("-" * 80)
+    print("Option 1. Scan for all network devices on your subnet")
+    print("-" * 80)
+    print("Option 2. Scan Open Ports on your device")
+    print("-" * 80)
+    print("Option 3. Scan Open Ports on another device")
+    print("-" * 80)
+    print("IF YOU WOULD LIKE TO LEAVE THIS TOOL - PLEASE TYPE --> 'Quit'")
+    print("-" * 80)
+
+options()
 option = input ("What option would you like? (Please type the option number - Like '1') - ")
+
 
 while True:
     if option == "1":
         clean()
         print("*" * 80)
-        print("                               Results Found")
+        print("                               Results Loading")
         print("*" * 80)
+        clean()
         scanall()
-        print("*" * 80)
         print("-" * 80)
-        print("Option 1. Scan for all network devices on your subnet")
-        print("-" * 80)
-        print("Option 2. Scan Open Ports on your device")
-        print("-" * 80)
-        print("IF YOU WOULD LIKE TO LEAVE THIS TOOL - PLEASE TYPE --> 'Quit'")
-        print("-" * 80)   
-        option = input ("What option would you like? (Please type the option number - Like '1') - ")
+        retry = input ("Would you like to see the options agian? (Please type Y or N) - ")
+        if retry == "Y":
+            options()  
+            option = input ("What option would you like? (Please type the option number - Like '1') - ")
+        else:
+            break
     elif option == "2":
         clean()
         portscanner()
         print("-" * 80)
-        print("Option 1. Scan for all network devices on your subnet")
         print("-" * 80)
-        print("Option 2. Scan Open Ports on your device")   
-        print("-" * 80)
-        print("IF YOU WOULD LIKE TO LEAVE THIS TOOL - PLEASE TYPE --> 'Quit'")
-        print("-" * 80)  
+        options()
         option = input ("What option would you like? (Please type the option number - Like '1') - ")
     elif option == "3":
         clean()
         portscanner2()
+        print("-" * 80)
+        print("-" * 80)
+        options()
     elif option == "Quit":
         break
     else:
         clean()
         print("*" * 80)
+        print("       You enter in an option that is not available - Please try again")
         print("*" * 80)
-        print("                      Option not available - Please try again")
-        print("*" * 80)
-        print("*" * 80)
-        print("-" * 80)
-        print("Option 1. Scan for all network devices on your subnet")
-        print("-" * 80)
-        print("Option 2. Scan Open Ports on your device")   
-        print("-" * 80)
-        print("IF YOU WOULD LIKE TO LEAVE THIS TOOL - PLEASE TYPE --> 'Quit'")
-        print("-" * 80)  
+        options()
         option = input ("What option would you like? (Please type the option number - Like '1') - ")
-
