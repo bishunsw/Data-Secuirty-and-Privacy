@@ -27,7 +27,7 @@ def scanall():                                                                  
     print("_" * 70)                                                             #This creates 70 underscore symbols to tweak the result view in the terminal
     print (unknown_final_list)                                                  #This prints the list view of the unknown devices inside the terminal
 
-def portscanner():
+def portscanner():                                                              #PortScanner function that allows this tool to check what ports are open on the current device and returning the output in the terminal
     host = socket.gethostname()
     ips = socket.gethostbyname(host)
     target = str(ips)
