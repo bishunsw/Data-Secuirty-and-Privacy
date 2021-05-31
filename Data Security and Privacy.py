@@ -1,31 +1,31 @@
-import os
-import sys
-import socket
-import pyfiglet
-import re
+import os                                                                       #Used to import the OS module to allow for OS specific commands like "ping" to be used                                                              
+import sys                                                                      #Used to import the Sys module to allow for the terminal shell to exit functions running in the terminal
+import socket                                                                   #Used to import the Socket module to allow for the collection of IP and hostnames inside this tool
+import pyfiglet                                                                 #Used to import the pyfiglet module to allow for the ASCII banner within this tool to display the Michael Bishop banner
+import re                                                                       #Used to import the re module to allow for regex checking function within this tool
 
-def clean():
-    os.system('clear')
+def clean():                                                                    #Clean Function that allows the tool to reference the function of clearing the terminal results to minimise result clogging the terminal
+    os.system('clear')                                                          #Using the sys module, this clears the python terminal so everything is removed including results
 
-def scanall():
-    devices = []
-    unknown = []
-    for device in os.popen('arp -a'):
-        if device[0] == "?":
-            unknown.append(device)
-        else:
-            devices.append(device)
-    final_list = '\n'.join(devices)
-    unknown_final_list = '\n'.join(unknown)
-    print("_" * 70)
-    print ("############## Discoverable Devices Found ##############")
-    print("-" * 70)
-    print (final_list)
-    print ("Discoverable Devices count is - ", len(devices)) 
-    print("-" * 70)
-    print ("############## Unknown Devices Found ##############")
-    print("_" * 70)
-    print (unknown_final_list)
+def scanall():                                                                  #ScanAll Function that allows the tool to reference the function for scanning and returning all the hosts on the subnet of the device running this tool
+    devices = []                                                                #This array is used to store the devices that have resolved hostnames for later output
+    unknown = []                                                                #This array is used to store the devices that their hostname was unable to be resolved for later output
+    for device in os.popen('arp -a'):                                           #This for loop creates a shell pipe to run the arp -a command for both unix and linux system terminals to allow address resolution protocol
+        if device[0] == "?":                                                    #This if statement checks the results of the arp command in the line above to find the devices where their hostname was not resolved
+            unknown.append(device)                                              #This appends the unknown hosts to the array called "Unknown"
+        else:                                                                   #This else statement is for the hostname that were able to be resolved via the arp command
+            devices.append(device)                                              #This appends the known hostnames to the devices array
+    final_list = '\n'.join(devices)                                             #This final list creates an empty line (enter value) between each value in the known device and then stores it inside another array. 
+    unknown_final_list = '\n'.join(unknown)                                     #This unknown final list array is used to create an empty line between the values of the unknown devices array into this array for a list view
+    print("_" * 70)                                                             #This creates 70 underscore symbols to tweak the result view in the terminal
+    print ("############## Discoverable Devices Found ##############")          #This display a seperator text to show what discoverabled (resolved hostname) devices found
+    print("-" * 70)                                                             #This creates 70 dash symbols to tweak the result view in the terminal
+    print (final_list)                                                          #This prints the list view of the known devices inside the terminal
+    print ("Discoverable Devices count is - ", len(devices))                    #This prints a count of the known devices found using an int number
+    print("-" * 70)                                                             #This creates 70 dash symbols to tweak the result view in the terminal
+    print ("############## Unknown Devices Found ##############")               #This display a seperator text to show what undiscoverabled (unresolved hostname) devices found
+    print("_" * 70)                                                             #This creates 70 underscore symbols to tweak the result view in the terminal
+    print (unknown_final_list)                                                  #This prints the list view of the unknown devices inside the terminal
 
 def portscanner():
     host = socket.gethostname()
