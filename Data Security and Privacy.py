@@ -68,10 +68,10 @@ def portscanner2():
 
     try:
         socket.inet_aton(target)
-        regex = "^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])$"           ##Idea came from this following link https://www.geeksforgeeks.org/python-program-to-validate-an-ip-address/ 
+        regex = "^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])$"           #Idea came from this following link https://www.geeksforgeeks.org/python-program-to-validate-an-ip-address/ 
         if (re.search(regex, target)):
             print("Initial IP Address Check Complete - Please wait while we check the host")
-            ping_test = os.system("ping -c 1 " + target)                                                                        ##Idea came from this following link https://stackoverflow.com/questions/2535055/check-if-remote-host-is-up-in-python 
+            ping_test = os.system("ping -c 1 " + target)                                                                        #Idea came from this following link https://stackoverflow.com/questions/2535055/check-if-remote-host-is-up-in-python 
             if ping_test != 0:
                 print("*" * 80)
                 print("            Host not found - Please check host IP address again")
