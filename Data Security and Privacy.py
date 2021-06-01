@@ -46,6 +46,7 @@ def portscanner():                                                              
         for port in range(1,6000):                                              #This port loops works to increase ports value starting from 1 to 6000 as the port number to be tested below
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)               #This makes s the variable that will use the socket module to create a stream via IPv4 to tcp for the creation of the requests of the port scanner   -Reference -  https://docs.python.org/3/howto/sockets.html
             socket.setdefaulttimeout(0.1)                                       #This sets the socket timeout to 0.1 seconds, since we are scanning up to 6000 ports, we don't want the ports that are not open to hold up this tool
+            
             result = s.connect_ex((str(target),port))                           #This creates another variable name results that stores the result when the program takes the target variable (which is the IP address of the host) and the port number and creates a socket packet that is sent to the host
             if result == 0:                                                     #If the result returns a 0 value, this means the port is open on the hostmachine    
                 print ("Port {} is open".format(port))                          #If the result above returns 0, this prints the following statement including the port that was found to be open
