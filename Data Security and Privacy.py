@@ -60,23 +60,23 @@ def portscanner():                                                              
         print("Hostname cannot be resolved")                                    #This prints the following statement within the terminal
         sys.exit()                                                              #This will exit the following loop if the host can no longer be contacted by the loop socket stream
 
-def portscanner2():
-    ips = input ("What is the IP of the device you would like to scan? - ")
-    target = str(ips)
-    host_check = False
+def portscanner2():                                                             #This function is very similar to the portscanner function above but allows for the user to select their own target host
+    ips = input ("What is the IP of the device you would like to scan? - ")     #This variable stores the input of the user that contains the IP address of the host they are wanting to scan
+    target = str(ips)                                                           #This variable converts the variable that is storing the input of the user into a string
+    host_check = False                                                          #This variable is created to be used later in the code to check the host is valid or not
 
-    try:
-        socket.inet_aton(target)
+    try:                                                                        #This try function is here to ensure that the port scanner loop continues until an exception is activated further onwards
+        socket.inet_aton(target)                                                #This attempts converting the IP Address into a dotted-quad string, this will fail if the user try to input a bad input instead of a IP address at the front of the input
         regex = "^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])$"           #Idea came from this following link https://www.geeksforgeeks.org/python-program-to-validate-an-ip-address/ 
-        if (re.search(regex, target)):
-            print("*" * 80)
-            print("Initial IP Address Check Complete - Please wait while we check the host")
-            print("*" * 80)
-            ping_test = os.system("ping -c 1 " + target)                                                                        #Idea came from this following link https://stackoverflow.com/questions/2535055/check-if-remote-host-is-up-in-python 
-            if ping_test != 0:
-                print("*" * 80)
-                print("            Host not found - Please check host IP address again")
-                print("*" * 80)
+        if (re.search(regex, target)):                                          #This check the entire string including the end of the input to ensure the user types an IP address instead of bad code for the input
+            print("*" * 80)                                                     #This creates 80 * symbols to tweak the result view in the terminal
+            print("Initial IP Address Check Complete - Please wait while we check the host")           #This prints the following statement to the terminal to let the user know that they inputted a correct IP address notation for the input
+            print("*" * 80)                                                     #This creates 80 * symbols to tweak the result view in the terminal
+            ping_test = os.system("ping -c 1 " + target)                        #Idea came from this following link https://stackoverflow.com/questions/2535055/check-if-remote-host-is-up-in-python - Since this code runs anything for the target variable, i needed to ensure that user could not inject bad code for this line
+            if ping_test != 0:                                                  #If the ping test fails to ping the target IP, this will mean the user has inputted an IP address where the host cannot be contacted
+                print("*" * 80)                                                 #This creates 80 * symbols to tweak the result view in the terminal
+                print("            Host not found - Please check host IP address again")                #This prints the following statement to the terminal to let the user know that the host could not be resolved
+                print("*" * 80)                                                 #This creates 80 * symbols to tweak the result view in the terminal
                 portscanner2()
             else:
                 print("*" * 80)
