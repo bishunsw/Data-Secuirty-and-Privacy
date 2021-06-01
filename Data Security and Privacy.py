@@ -28,19 +28,19 @@ def scanall():                                                                  
     print (unknown_final_list)                                                  #This prints the list view of the unknown devices inside the terminal
 
 def portscanner():                                                              #PortScanner function that allows this tool to check what ports are open on the current device and returning the output in the terminal
-    host = socket.gethostname()
-    ips = socket.gethostbyname(host)
-    target = str(ips)
+    host = socket.gethostname()                                                 #This creates a variable that uses the socket module to grab the current machine's hostname
+    ips = socket.gethostbyname(host)                                            #This creates a variable that uses the variable above to translate the hostname into an IP address
+    target = str(ips)                                                           #This creates a variable based on the IP address above and ensures that it is changed to a string
 
-    print("-" * 35)
+    print("-" * 35)                                                             #This creates 35 dash symbols to tweak the result view in the terminal
     print("Scanning Your Device: IP -  " + str(target))
-    print("-" * 35)
-    print("-" * 35)
-    print("If you would like to cancel the scan, please use CTRL + C, scanning may take some time")
-    print("-" * 35)
-    print("*" * 80)
-    print("                                 Results")
-    print("*" * 80)
+    print("-" * 35)                                                             #This creates 35 dash symbols to tweak the result view in the terminal
+    print("-" * 35)                                                             #This creates 35 dash symbols to tweak the result view in the terminal
+    print("If you would like to cancel the scan, please use CTRL + C, scanning may take some time")       #This creates the current message to appear in the terminal to tell the user how to quit the scanning if it takes too long
+    print("-" * 35)                                                             #This creates 35 dash symbols to tweak the result view in the terminal
+    print("*" * 80)                                                             #This creates 80 * symbols to tweak the result view in the terminal
+    print("                                 Results")                           #This creates the following text to appear in the terminal to allow the user to know what results were found below
+    print("*" * 80)                                                             #This creates 80 * symbols to tweak the result view in the terminal
 
     try:
         for port in range(1,6000):
@@ -70,7 +70,9 @@ def portscanner2():
         socket.inet_aton(target)
         regex = "^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])$"           #Idea came from this following link https://www.geeksforgeeks.org/python-program-to-validate-an-ip-address/ 
         if (re.search(regex, target)):
+            print("*" * 80)
             print("Initial IP Address Check Complete - Please wait while we check the host")
+            print("*" * 80)
             ping_test = os.system("ping -c 1 " + target)                                                                        #Idea came from this following link https://stackoverflow.com/questions/2535055/check-if-remote-host-is-up-in-python 
             if ping_test != 0:
                 print("*" * 80)
@@ -78,7 +80,9 @@ def portscanner2():
                 print("*" * 80)
                 portscanner2()
             else:
+                print("*" * 80)
                 print("Host found - Starting Port Scan Now")
+                print("*" * 80)
         else:
             print("IYou have entered a value that is not an IP Address - Format ###.###.###.###")
             portscanner2()
