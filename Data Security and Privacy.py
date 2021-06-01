@@ -42,24 +42,23 @@ def portscanner():                                                              
     print("                                 Results")                           #This creates the following text to appear in the terminal to allow the user to know what results were found below
     print("*" * 80)                                                             #This creates 80 * symbols to tweak the result view in the terminal
 
-    try:
-        for port in range(1,6000):
-            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            socket.setdefaulttimeout(0.1)
-
-            result = s.connect_ex((str(target),port))
-            if result == 0:
-                print ("Port {} is open".format(port))
-            s.close
-    except KeyboardInterrupt:
-        print ("Program Exitting")
-        sys.exit()
-    except socket.error:
-        print("Not responding")
-        sys.exit()
-    except socket.gaierror:
-        print("Hostname cannot be resolved")
-        sys.exit()
+    try:                                                                        #This try function is here to ensure that the port scanner loop continues until an exception is activated further onwards
+        for port in range(1,6000):                                              #This port loops works to increase ports value starting from 1 to 6000 as the port number to be tested below
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)               #This makes s the variable that will use the socket module to create a stream via IPv4 to tcp for the creation of the requests of the port scanner   -Reference -  https://docs.python.org/3/howto/sockets.html
+            socket.setdefaulttimeout(0.1)                                       #This sets the socket timeout to 0.1 seconds, since we are scanning up to 6000 ports, we don't want the ports that are not open to hold up this tool
+            result = s.connect_ex((str(target),port))                           #This creates another variable name results that stores the result when the program takes the target variable (which is the IP address of the host) and the port number and creates a socket packet that is sent to the host
+            if result == 0:                                                     #If the result returns a 0 value, this means the port is open on the hostmachine    
+                print ("Port {} is open".format(port))                          #If the result above returns 0, this prints the following statement including the port that was found to be open
+            s.close                                                             #This closes the socket stream once the ports have all been checked
+    except KeyboardInterrupt:                                                   #This check to see if the user types anything             
+        print ("Program Exitting")                                              #This prints the following statement in the terminal
+        sys.exit()                                                              #The loop will close if the user types anything into the terminal or presses any keys on their device
+    except socket.error:                                                        #If the socket function has an error such as the socket stream recieving back a misc response, the loop will be exited    
+        print("Not responding")                                                 #This prints the following statement within the terminal
+        sys.exit()                                                              #This will exit the following loop if the socket has an error occur
+    except socket.gaierror:                                                     #This except function will be triggered if the host is unable to respond to the port scan - if the host drops halfway through the scan
+        print("Hostname cannot be resolved")                                    #This prints the following statement within the terminal
+        sys.exit()                                                              #This will exit the following loop if the host can no longer be contacted by the loop socket stream
 
 def portscanner2():
     ips = input ("What is the IP of the device you would like to scan? - ")
