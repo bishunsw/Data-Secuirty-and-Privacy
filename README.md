@@ -31,7 +31,7 @@ Hex 3 - 2021 - Data Security and Privacy Assessment 3
 
 ---
 
-## How to use the tool
+## What to check before running the tool
 
 #### Ensure you have python installed on your device 
 > Use the following link to the python download page - https://www.python.org/downloads/
@@ -41,3 +41,6 @@ Hex 3 - 2021 - Data Security and Privacy Assessment 3
 #### Once you have installed the requirements txt, proceed to launch the Data Security and Privacy.py file
 > Use the following command - python3 Data and Security and Privacy.py (Please note you will need to be in the current directory where the .py file is stored on your device)
 
+## How to use the tool
+
+#### Once you have launched the python file, you will see three options.
