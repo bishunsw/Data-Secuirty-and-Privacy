@@ -44,3 +44,4 @@ Hex 3 - 2021 - Data Security and Privacy Assessment 3
 ## How to use the tool
 
 #### Once you have launched the python file, you will see three options.
+![Options](https://github.com/bishunsw/Data-Secuirty-and-Privacy/blob/main/Readme%20-%20Images/Options.png)
