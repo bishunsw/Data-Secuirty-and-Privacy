@@ -3,7 +3,7 @@ Hex 3 - 2021 - Data Security and Privacy Assessment 3
 
 # Welcome to Michael Bishop's Recon Toolkit
 
-![Homescreen](https://github.com/bishunsw/Data-Secuirty-and-Privacy/tree/main/Readme%20-%20Images/Description.png)
+![Homescreen](https://github.com/bishunsw/Data-Secuirty-and-Privacy/blob/main/Readme%20-%20Images/Description.png)
 
 ## Description
 
