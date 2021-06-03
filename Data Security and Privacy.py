@@ -260,7 +260,7 @@ while True:                                                                     
     else:                                                                       #This checks if all the other previous if statements were not triggered meaning that the user did not type a correct option in the terminal
         clean()                                                                 #This calls the clean function that "cleans" the terminal of all previous messages so that the terminal is empty
         print("*" * 80)                                                         #This creates 80 dash symbols to tweak the result view in the terminal
-        print("       You enter in an option that is not available - Please try again")                              #This prints the following statement to let the user know they select an option that isn't available
+        print("       You entered in an option that is not available - Please try again")                              #This prints the following statement to let the user know they select an option that isn't available
         print("*" * 80)                                                         #This creates 80 dash symbols to tweak the result view in the terminal
         options()                                                               #This calls the option function which displays all the options in this tool
         option = input ("What option would you like? (Please type the option number - Like '1') - ")                #This prompts the user to select an option via their input in the terminal
