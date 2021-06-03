@@ -66,6 +66,6 @@ Hex 3 - 2021 - Data Security and Privacy Assessment 3
 > You have updated your pip - **pip install --upgrade pip**
 > You are using sudo / admin mode in the cmd / terminal
 #### If this is still not working for you, you will need to install the following packages
-> **pip install pyfiglet
+> **pip install pyfiglet**
 
 ---
