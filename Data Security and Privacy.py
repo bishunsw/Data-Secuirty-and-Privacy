@@ -173,3 +173,4 @@ while True:                                                                     
         print("*" * 80)                                                         #This creates 80 dash symbols to tweak the result view in the terminal
         options()                                                               #This calls the option function which displays all the options in this tool
         option = input ("What option would you like? (Please type the option number - Like '1') - ")                #This prompts the user to select an option via their input in the terminal
+

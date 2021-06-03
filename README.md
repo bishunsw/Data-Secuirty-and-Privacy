@@ -58,3 +58,14 @@ Hex 3 - 2021 - Data Security and Privacy Assessment 3
 
 ---
 
+# Error Code Fixes
+---
+
+## Requirement.txt Error
+#### If you see a message when you are using the requirements.txt, please ensure that;
+> You have updated your pip - **pip install --upgrade pip**
+> You are using sudo / admin mode in the cmd / terminal
+#### If this is still not working for you, you will need to install the following packages
+> **pip install pyfiglet
+
+---
