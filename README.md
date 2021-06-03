@@ -17,6 +17,7 @@ Hex 3 - 2021 - Data Security and Privacy Assessment 3
 ##### 1. Find Devices on Current Subnet
 ##### 2. Scan Open Ports on Current Device
 ##### 3. Scan Open Ports on another device
+##### 4. Choose MIN and MAX ports to scan on another device for open ports
 
 ##### Option 1. Allows you to discover devices that are currently on your subnet that you might not be aware about. Optimal utilisation will allow both the hostname and the IP address to appear. 
 ###### Please note: Certain enviroment will not resolve the hostname but the IP address will be available still 
@@ -29,6 +30,10 @@ Hex 3 - 2021 - Data Security and Privacy Assessment 3
 ###### Please note: Ensure your loopback adapter is either disabled and set as secondary priority for network connections. Due to the tool using the host IP, it will grab the 127 address if your loopback adapter is first priority.
 ###### Please note: Microsoft Defender and other AVs may prevent the tool discovering all open ports
 
+#### Option 4. Allows you to select the minimum and maximum port numbers you would like to scan on another host to verify what ports are open
+###### Please note: Ensure your loopback adapter is either disabled and set as secondary priority for network connections. Due to the tool using the host IP, it will grab the 127 address if your loopback adapter is first priority.
+###### Please note: Microsoft Defender and other AVs may prevent the tool discovering all open ports
+###### Please note: The program will close if you attempt to enter a value that is not a number in the input fields of the min and max port option
 ---
 
 ## What to check before running the tool
@@ -52,6 +57,7 @@ Hex 3 - 2021 - Data Security and Privacy Assessment 3
 ##### For option 1, you will type "1"
 ##### For option 2, you will type "2"
 ##### For option 3, you will type "3"
+##### For option 4, you will type "4"
 ##### To quit the tool, you will type "Quit"
 > Any other input will not work and you will recieve the following message
 ![OptionNotFound](https://github.com/bishunsw/Data-Secuirty-and-Privacy/blob/main/Readme%20-%20Images/NotFound.png)

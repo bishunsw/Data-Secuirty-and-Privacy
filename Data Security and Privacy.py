@@ -119,6 +119,86 @@ def portscanner2():                                                             
         print("Not responding")                                                 #This prints the following statement within the terminal
         sys.exit()                                                              #This will exit the following loop if the socket has an error occur
 
+def portscanner3():                                                             #This function is the extended version of option 3 but allows for the user to select what min and max port they want to scan
+    portmin = int(input("What is your minimum port number you would like to scan? - "))         #This prompts the user to enter in a number for the minimum port value they want to scan
+    if portmin < 0:                                                             #This if statement checks to make sure the input is not a negative number
+        print("The number you have selected is negative, please try again!")    #This prints the following statement to let the user know they inputted a negative number
+        portscanner3()                                                          #This loops back to the start of this function
+    elif portmin > 0:                                                           #This check that the value of the minimum port is greater than 0
+        print("You have selected port number " + str(portmin) + " as your minimum port number")         #This print the following statement in the terminal
+
+    portmax = int(input("What is your maximum port number you would like to scan? - "))         #This prompts the user to enter in a number for the maximum port value they want to scan
+    if portmax < 0:                                                             #This if statement checks to make sure the input is not a negative number
+        print("The number you have selected is negative, please try again!")    #This prints the following statement to let the user know they inputted a negative number
+        portscanner3()                                                          #This loops back to the start of this function
+    if portmin > portmax:                                                       #This checks to ensure that the maximum port number entered is greater than the minimum port number
+        print("Your port maximum value is less than your min port value, please try again")             #This prints the following statement in the terminal to let the user know that they have inputted a value lower than the minimum port value
+        portscanner3()                                                          #This loops back to the start of this function
+    elif portmax > 0:                                                           #This check that the value of the maximum port is greater than 0
+        print("You have selected port number " + str(portmax) + " as your minimum port number")         #This print the following statement in the terminal
+
+    ips = input ("What is the IP of the device you would like to scan? - ")     #This variable stores the input of the user that contains the IP address of the host they are wanting to scan
+    target = str(ips)                                                           #This variable converts the variable that is storing the input of the user into a string
+    host_check = False                                                          #This variable is created to be used later in the code to check the host is valid or not
+
+    try:                                                                        #This try function is here to ensure that the port scanner loop continues until an exception is activated further onwards
+        socket.inet_aton(target)                                                #This attempts converting the IP Address into a dotted-quad string, this will fail if the user try to input a bad input instead of a IP address at the front of the input
+        regex = "^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])$"           #Idea came from this following link https://www.geeksforgeeks.org/python-program-to-validate-an-ip-address/ 
+        if (re.search(regex, target)):                                          #This check the entire string including the end of the input to ensure the user types an IP address instead of bad code for the input
+            print("*" * 80)                                                     #This creates 80 * symbols to tweak the result view in the terminal
+            print("Initial IP Address Check Complete - Please wait while we check the host")           #This prints the following statement to the terminal to let the user know that they inputted a correct IP address notation for the input
+            print("*" * 80)                                                     #This creates 80 * symbols to tweak the result view in the terminal
+            ping_test = os.system("ping -c 1 " + target)                        #Idea came from this following link https://stackoverflow.com/questions/2535055/check-if-remote-host-is-up-in-python - Since this code runs anything for the target variable, i needed to ensure that user could not inject bad code for this line
+            if ping_test != 0:                                                  #If the ping test fails to ping the target IP, this will mean the user has inputted an IP address where the host cannot be contacted
+                print("*" * 80)                                                 #This creates 80 * symbols to tweak the result view in the terminal
+                print("            Host not found - Please check host IP address")                #This prints the following statement to the terminal to let the user know that the host could not be resolved
+                print("*" * 80)                                                 #This creates 80 * symbols to tweak the result view in the terminal
+                portscanner3()                                                  #This returns back to the function again so the user can try another host to test
+            else:                                                               #This else statement is used when the ping test works
+                print("*" * 80)                                                 #This creates 80 * symbols to tweak the result view in the terminal                                        
+                print("Host found - Starting Port Scan Now")                    #This prints the following statement in the terminal to let the user know that the host was found
+                print("*" * 80)                                                 #This creates 80 * symbols to tweak the result view in the terminal
+        else:                                                                   #This else statment is used when the ip address entered by the user does not use IP notation
+            print("IYou have entered a value that is not an IP Address - Format ###.###.###.###")       #This prints the following statement in the terminal to let the user know that they did not enter the correct ip address formatting
+            portscanner3()                                                      #This loops back to the start of this function to prompt the user for an ip address
+    except socket.error:                                                        #This exception is here, just in case the two function above to not determine the ip address as not an ip address - Triple layer input sanitisation
+        print("You have entered a value that is not an IP Address - Format ###.###.###.###")            #This prints the following statement in the terminal to let the user know that they did not input the correct ip address notation.
+        portscanner3()                                                          #This loops back to the start of this function to prompt the user for an ip address
+
+    print("-" * 35)                                                             #This prints a dash symbol 35 times inside the terminal to tweak the output for user experience
+    print("Scanning Device: IP -  " + str(target))
+    print("-" * 35)                                                             #This prints a dash symbol 35 times inside the terminal to tweak the output for user experience
+    print("-" * 35)                                                             #This prints a dash symbol 35 times inside the terminal to tweak the output for user experience
+    print("If you would like to cancel the scan, please use CTRL + C, scanning may take some time")     #This prints the following statement inside the terminal to allow the user to know what device IP is getting scanned and how to exit the tool if required.
+    print("-" * 35)                                                             #This prints a dash symbol 35 times inside the terminal to tweak the output for user experience
+    print("*" * 90)                                                             #This creates 90 * symbols to tweak the result view in the terminal
+    print(" Results (If no results appear, you may want to raise / lower your port min and max limits)")                           #This prints the following statement to allow the user to know the results of the port scanner function
+    print("*" * 90)                                                             #This creates 90 * symbols to tweak the result view in the terminal
+
+    try:                                                                        #This try function is here to ensure that the port scanner loop continues until an exception is activated further onwards  
+        for port in range(portmin,portmax):                                     #This port loops works to increase ports value starting from the minimum number the user selected and the maximum number the user selected as the port number to be tested below
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)               #This makes s the variable that will use the socket module to create a stream via IPv4 to tcp for the creation of the requests of the port scanner   -Reference -  https://docs.python.org/3/howto/sockets.html
+            socket.setdefaulttimeout(0.1)                                       #This sets the socket timeout to 0.1 seconds, since we are scanning up to 6000 ports, we don't want the ports that are not open to hold up this tool
+
+            result = s.connect_ex((str(target),port))                           #This creates another variable name results that stores the result when the program takes the target variable (which is the IP address of the host) and the port number and creates a socket packet that is sent to the host
+            if result == 0:                                                     #If the result returns a 0 value, this means the port is open on the hostmachine
+                print ("Port {} is open".format(port))                          #If the result above returns 0, this prints the following statement including the port that was found to be open
+            s.close                                                             #This closes the socket stream once the ports have all been checked
+    except socket.gaierror:                                                     #This except function will be triggered if the host is unable to respond to the port scan - if the host drops halfway through the scan
+        print("Hostname cannot be resolved")                                    #This prints the following statement within the terminal
+        sys.exit()                                                              #This will exit the following loop if the host can no longer be contacted by the loop socket stream
+    except KeyboardInterrupt:                                                   #This check to see if the user types anything             
+        print ("Program Exitting")                                              #This prints the following statement in the terminal
+        sys.exit()                                                              #The loop will close if the user types anything into the terminal or presses any keys on their device
+    except socket.error:                                                        #If the socket function has an error such as the socket stream recieving back a misc response, the loop will be exited    
+        print("Not responding")                                                 #This prints the following statement within the terminal
+        sys.exit()                                                              #This will exit the following loop if the socket has an error occur
+
+
+
+
+
+
 ascii_banner = pyfiglet.figlet_format("Welcome to Michael Bishop's Recon Toolkit")       #This uses the pyfiglet module to create the banner for the tool for visual aid
 print(ascii_banner)                                                             #This prints the banner variable above
 
@@ -129,6 +209,10 @@ def options():                                                                  
     print("Option 2. Scan Open Ports on your device")                           #This prints the following statement inside the terminal
     print("-" * 80)                                                             #This creates 80 dash symbols to tweak the result view in the terminal
     print("Option 3. Scan Open Ports on another device")                        #This prints the following statement inside the terminal
+    print("-" * 80)                                                             #This creates 80 dash symbols to tweak the result view in the terminal
+    print("                            Extended Options ")                                #This creates 80 dash symbols to tweak the result view in the terminal
+    print("-" * 80)                                                             #This creates 80 dash symbols to tweak the result view in the terminal
+    print("Option 4. Choose MIN and MAX ports to scan on another device for open ports")             #This prints the following statement inside the terminal
     print("-" * 80)                                                             #This creates 80 dash symbols to tweak the result view in the terminal
     print("IF YOU WOULD LIKE TO LEAVE THIS TOOL - PLEASE TYPE --> 'Quit'")      #This prints the following statement inside the terminal
     print("-" * 80)                                                             #This creates 80 dash symbols to tweak the result view in the terminal
@@ -164,6 +248,13 @@ while True:                                                                     
         print("-" * 80)                                                         #This creates 80 dash symbols to tweak the result view in the terminal
         print("-" * 80)                                                         #This creates 80 dash symbols to tweak the result view in the terminal
         options()                                                               #This calls the option function which displays all the options in this tool
+    elif option == "4":
+        clean()                                                                 #This calls the clean function that "cleans" the terminal of all previous messages so that the terminal is empty
+        portscanner3()                                                          #This calls the portscanner 3 function that starts the option for scanning a another host and selecting the minimum and max port number
+        print("-" * 80)                                                         #This creates 80 dash symbols to tweak the result view in the terminal
+        print("-" * 80)                                                         #This creates 80 dash symbols to tweak the result view in the terminal
+        options()                                                               #This calls the option function which displays all the options in this tool
+        option = input ("What option would you like? (Please type the option number - Like '1') - ")                #This prompts the user to select an option via their input in the terminal
     elif option == "Quit":                                                      #This check if the user has typed "Quit" into the terminal
         break                                                                   #This exits the tool
     else:                                                                       #This checks if all the other previous if statements were not triggered meaning that the user did not type a correct option in the terminal
