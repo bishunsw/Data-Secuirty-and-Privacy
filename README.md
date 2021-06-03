@@ -37,11 +37,19 @@ Hex 3 - 2021 - Data Security and Privacy Assessment 3
 > Use the following link to the python download page - https://www.python.org/downloads/
 
 #### Ensure you install the requirements txt before using the tool to ensure all modules are installed
-> Use the following command - pip install r requirements.txt (Please note you will need to be in the current directory where the requirements txt is stored on your device)
+> Use the following command - **pip install r requirements.txt** (Please note you will need to be in the current directory where the requirements txt is stored on your device)
 #### Once you have installed the requirements txt, proceed to launch the Data Security and Privacy.py file
-> Use the following command - python3 Data and Security and Privacy.py (Please note you will need to be in the current directory where the .py file is stored on your device)
+> Use the following command - **python3 Data and Security and Privacy.py** (Please note you will need to be in the current directory where the .py file is stored on your device)
 
 ## How to use the tool
 
 #### Once you have launched the python file, you will see three options.
 ![Options](https://github.com/bishunsw/Data-Secuirty-and-Privacy/blob/main/Readme%20-%20Images/Options.png)
+
+#### To select options, you will type the corresponding option number
+##### For option 1, you will type "1"
+##### For option 2, you will type "2"
+##### For option 3, you will type "3"
+##### To quit the tool, you will type "Quit"
+> Any other input will not work and you will recieve the following message
+![OptionNotFound](https://github.com/bishunsw/Data-Secuirty-and-Privacy/blob/main/Readme%20-%20Images/NotFound.png)
