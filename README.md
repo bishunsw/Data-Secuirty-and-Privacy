@@ -30,7 +30,7 @@ Hex 3 - 2021 - Data Security and Privacy Assessment 3
 ###### Please note: Ensure your loopback adapter is either disabled and set as secondary priority for network connections. Due to the tool using the host IP, it will grab the 127 address if your loopback adapter is first priority.
 ###### Please note: Microsoft Defender and other AVs may prevent the tool discovering all open ports
 
-#### Option 4. Allows you to select the minimum and maximum port numbers you would like to scan on another host to verify what ports are open
+##### Option 4. Allows you to select the minimum and maximum port numbers you would like to scan on another host to verify what ports are open
 ###### Please note: Ensure your loopback adapter is either disabled and set as secondary priority for network connections. Due to the tool using the host IP, it will grab the 127 address if your loopback adapter is first priority.
 ###### Please note: Microsoft Defender and other AVs may prevent the tool discovering all open ports
 ###### Please note: The program will close if you attempt to enter a value that is not a number in the input fields of the min and max port option
