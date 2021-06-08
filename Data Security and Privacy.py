@@ -1,8 +1,14 @@
+
+## Import Module Section ##
+
 import os                                                                       #Used to import the OS module to allow for OS specific commands like "ping" to be used                                                              
 import sys                                                                      #Used to import the Sys module to allow for the terminal shell to exit functions running in the terminal
 import socket                                                                   #Used to import the Socket module to allow for the collection of IP and hostnames inside this tool
 import pyfiglet                                                                 #Used to import the pyfiglet module to allow for the ASCII banner within this tool to display the Michael Bishop banner
 import re                                                                       #Used to import the re module to allow for regex checking function within this tool
+
+
+## Function Declaration Section ##
 
 def clean():                                                                    #Clean Function that allows the tool to reference the function of clearing the terminal results to minimise result clogging the terminal
     os.system('clear')                                                          #Using the sys module, this clears the python terminal so everything is removed including results
@@ -194,10 +200,7 @@ def portscanner3():                                                             
         print("Not responding")                                                 #This prints the following statement within the terminal
         sys.exit()                                                              #This will exit the following loop if the socket has an error occur
 
-
-
-
-
+## Start of Program Banner Section ##
 
 ascii_banner = pyfiglet.figlet_format("Welcome to Michael Bishop's Recon Toolkit")       #This uses the pyfiglet module to create the banner for the tool for visual aid
 print(ascii_banner)                                                             #This prints the banner variable above
@@ -216,6 +219,8 @@ def options():                                                                  
     print("-" * 80)                                                             #This creates 80 dash symbols to tweak the result view in the terminal
     print("IF YOU WOULD LIKE TO LEAVE THIS TOOL - PLEASE TYPE --> 'Quit'")      #This prints the following statement inside the terminal
     print("-" * 80)                                                             #This creates 80 dash symbols to tweak the result view in the terminal
+
+## Program Option Menu Section ##
 
 options()                                                                       #This calls the option function which displays all the options in this tool
 option = input ("What option would you like? (Please type the option number - Like '1') - ")        #This prompts the user to select an option via their input in the terminal
