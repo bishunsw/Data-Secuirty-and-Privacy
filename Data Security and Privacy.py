@@ -273,7 +273,7 @@ while True:                                                                     
         option = input ("What option would you like? (Please type the option number - Like '1') - ")                #This prompts the user to select an option via their input in the terminal
     elif option == "4":
         clean()                                                                 #This calls the clean function that "cleans" the terminal of all previous messages so that the terminal is empty
-        portscanner3()
+        portscanner3()                                                          #This calls the portscanner3 function
         print("-" * 80)                                                         #This creates 80 dash symbols to tweak the result view in the terminal
         print("-" * 80)                                                         #This creates 80 dash symbols to tweak the result view in the terminal
         options()                                                               #This calls the option function which displays all the options in this tool
