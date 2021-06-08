@@ -126,21 +126,34 @@ def portscanner2():                                                             
         sys.exit()                                                              #This will exit the following loop if the socket has an error occur
 
 def portscanner3():                                                             #This function is the extended version of option 3 but allows for the user to select what min and max port they want to scan
-    portmin = int(input("What is your MINIMUM port number you would like to scan? - "))         #This prompts the user to enter in a number for the minimum port value they want to scan
-    if portmin < 0:                                                             #This if statement checks to make sure the input is not a negative number
+    portmin = input("What is your MINIMUM port number you would like to scan? - ")         #This prompts the user to enter in a number for the minimum port value they want to scan
+    try:                                                                        #This try function is used to try and convert the input into a int value 
+        portmin = int(portmin)                                                  #This converts the variable into a int variable
+    except ValueError:                                                          #If the try convert fails due to the input being not INT, the error message will display
+        print ("Input is not a number")                                         #This displays the following statement in the terminal
+        portmin = ""                                                            #This resets the variable to an empty value 
+        portscanner3()                                                          #This returns to the start of this function
+    if int(portmin) < 0:                                                        #This if statement checks to make sure the input is not a negative number
         print("The number you have selected is negative, please try again!")    #This prints the following statement to let the user know they inputted a negative number
         portscanner3()                                                          #This loops back to the start of this function
-    elif portmin > 0:                                                           #This check that the value of the minimum port is greater than 0
+    elif int(portmin) > 0:                                                           #This check that the value of the minimum port is greater than 0
         print("You have selected port number " + str(portmin) + " as your minimum port number")         #This print the following statement in the terminal
 
-    portmax = int(input("What is your MAXIMUM port number you would like to scan? - "))         #This prompts the user to enter in a number for the maximum port value they want to scan
-    if portmax < 0:                                                             #This if statement checks to make sure the input is not a negative number
+    portmax = input("What is your MAXIMUM port number you would like to scan? - ")         #This prompts the user to enter in a number for the maximum port value they want to scan
+    try:                                                                        #This try function is used to try and convert the input into a int value 
+        portmax = int(portmax)                                                  #This converts the variable into a int variable
+    except ValueError:                                                          #If the try convert fails due to the input being not INT, the error message will display
+        print ("Input is not a number")                                         #This displays the following statement in the terminal
+        portmax = ""                                                            #This resets the variable to an empty value
+        portscanner3()                                                          #This returns to the start of this function
+    
+    if int(portmax) < 0:                                                             #This if statement checks to make sure the input is not a negative number
         print("The number you have selected is negative, please try again!")    #This prints the following statement to let the user know they inputted a negative number
         portscanner3()                                                          #This loops back to the start of this function
-    if portmin > portmax:                                                       #This checks to ensure that the maximum port number entered is greater than the minimum port number
+    if int(portmin) > int(portmax):                                                       #This checks to ensure that the maximum port number entered is greater than the minimum port number
         print("Your port maximum value is less than your min port value, please try again")             #This prints the following statement in the terminal to let the user know that they have inputted a value lower than the minimum port value
         portscanner3()                                                          #This loops back to the start of this function
-    elif portmax > 0:                                                           #This check that the value of the maximum port is greater than 0
+    elif int(portmax) > 0:                                                           #This check that the value of the maximum port is greater than 0
         print("You have selected port number " + str(portmax) + " as your minimum port number")         #This print the following statement in the terminal
 
     ips = input ("What is the IP of the device you would like to scan? - ")     #This variable stores the input of the user that contains the IP address of the host they are wanting to scan
@@ -184,7 +197,7 @@ def portscanner3():                                                             
     try:                                                                        #This try function is here to ensure that the port scanner loop continues until an exception is activated further onwards  
         for port in range(int(portmin),int(portmax)):                                     #This port loops works to increase ports value starting from the minimum number the user selected and the maximum number the user selected as the port number to be tested below
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)               #This makes s the variable that will use the socket module to create a stream via IPv4 to tcp for the creation of the requests of the port scanner   -Reference -  https://docs.python.org/3/howto/sockets.html
-            socket.setdefaulttimeout(0.1)                                       #This sets the socket timeout to 0.1 seconds, since we are scanning up to 6000 ports, we don't want the ports that are not open to hold up this tool
+            socket.setdefaulttimeout(0.2)                                       #This sets the socket timeout to 0.1 seconds, since we are scanning up to 6000 ports, we don't want the ports that are not open to hold up this tool
 
             result = s.connect_ex((str(target),port))                           #This creates another variable name results that stores the result when the program takes the target variable (which is the IP address of the host) and the port number and creates a socket packet that is sent to the host
             if result == 0:                                                     #If the result returns a 0 value, this means the port is open on the hostmachine
@@ -199,6 +212,7 @@ def portscanner3():                                                             
     except socket.error:                                                        #If the socket function has an error such as the socket stream recieving back a misc response, the loop will be exited    
         print("Not responding")                                                 #This prints the following statement within the terminal
         sys.exit()                                                              #This will exit the following loop if the socket has an error occur
+    option = ""                                                                 #This resets the option variable (variable outside loop) so that a loop does not occur with this function
 
 ## Start of Program Banner Section ##
 
@@ -225,6 +239,9 @@ def options():                                                                  
 options()                                                                       #This calls the option function which displays all the options in this tool
 option = input ("What option would you like? (Please type the option number - Like '1') - ")        #This prompts the user to select an option via their input in the terminal
 
+
+def new_func(portscanner3):
+    portscanner3()                                                          #This calls the portscanner 3 function that starts the option for scanning a another host and selecting the minimum and max port number
 
 while True:                                                                     #This is forever loop unless the user types "Quit" in the terminal
     if option == "1":                                                           #This checks if the uses types 1 which selects the scanall function to find all devices on the same subnet
@@ -256,7 +273,7 @@ while True:                                                                     
         option = input ("What option would you like? (Please type the option number - Like '1') - ")                #This prompts the user to select an option via their input in the terminal
     elif option == "4":
         clean()                                                                 #This calls the clean function that "cleans" the terminal of all previous messages so that the terminal is empty
-        portscanner3()                                                          #This calls the portscanner 3 function that starts the option for scanning a another host and selecting the minimum and max port number
+        portscanner3()
         print("-" * 80)                                                         #This creates 80 dash symbols to tweak the result view in the terminal
         print("-" * 80)                                                         #This creates 80 dash symbols to tweak the result view in the terminal
         options()                                                               #This calls the option function which displays all the options in this tool
