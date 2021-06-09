@@ -29,7 +29,7 @@ def scanall():                                                                  
     print (final_list)                                                          #This prints the list view of the known devices inside the terminal
     print ("Discoverable Devices count is - ", len(devices))                    #This prints a count of the known devices found using an int number
     print("-" * 70)                                                             #This creates 70 dash symbols to tweak the result view in the terminal
-    print ("############## Unknown Devices Found ##############")               #This display a seperator text to show what undiscoverabled (unresolved hostname) devices found
+    print ("############## Unknown Devices Found ##############")               #This display a seperator text to show what undiscoverable (unresolved hostname) devices found
     print("_" * 70)                                                             #This creates 70 underscore symbols to tweak the result view in the terminal
     print (unknown_final_list)                                                  #This prints the list view of the unknown devices inside the terminal
 
@@ -60,7 +60,7 @@ def portscanner():                                                              
     except KeyboardInterrupt:                                                   #This check to see if the user types anything             
         print ("Program Exitting")                                              #This prints the following statement in the terminal
         sys.exit()                                                              #The loop will close if the user types anything into the terminal or presses any keys on their device
-    except socket.error:                                                        #If the socket function has an error such as the socket stream recieving back a misc response, the loop will be exited    
+    except socket.error:                                                        #If the socket function has an error such as the socket stream receiving back a misc response, the loop will be exited    
         print("Not responding")                                                 #This prints the following statement within the terminal
         sys.exit()                                                              #This will exit the following loop if the socket has an error occur
     except socket.gaierror:                                                     #This except function will be triggered if the host is unable to respond to the port scan - if the host drops halfway through the scan
@@ -89,10 +89,10 @@ def portscanner2():                                                             
                 print("*" * 80)                                                 #This creates 80 * symbols to tweak the result view in the terminal                                        
                 print("Host found - Starting Port Scan Now")                    #This prints the following statement in the terminal to let the user know that the host was found
                 print("*" * 80)                                                 #This creates 80 * symbols to tweak the result view in the terminal
-        else:                                                                   #This else statment is used when the ip address entered by the user does not use IP notation
+        else:                                                                   #This else statement is used when the ip address entered by the user does not use IP notation
             print("IYou have entered a value that is not an IP Address - Format ###.###.###.###")       #This prints the following statement in the terminal to let the user know that they did not enter the correct ip address formatting
             portscanner2()                                                      #This loops back to the start of this function to prompt the user for an ip address
-    except socket.error:                                                        #This exception is here, just in case the two function above to not determine the ip address as not an ip address - Triple layer input sanitisation
+    except socket.error:                                                        #This exception is here, just in case the two function above to not determine the ip address as not an ip address - Triple layer input sanitization
         print("You have entered a value that is not an IP Address - Format ###.###.###.###")            #This prints the following statement in the terminal to let the user know that they did not input the correct ip address notation.
         portscanner2()                                                          #This loops back to the start of this function to prompt the user for an ip address
 
@@ -121,7 +121,7 @@ def portscanner2():                                                             
     except KeyboardInterrupt:                                                   #This check to see if the user types anything             
         print ("Program Exitting")                                              #This prints the following statement in the terminal
         sys.exit()                                                              #The loop will close if the user types anything into the terminal or presses any keys on their device
-    except socket.error:                                                        #If the socket function has an error such as the socket stream recieving back a misc response, the loop will be exited    
+    except socket.error:                                                        #If the socket function has an error such as the socket stream receiving back a misc response, the loop will be exited    
         print("Not responding")                                                 #This prints the following statement within the terminal
         sys.exit()                                                              #This will exit the following loop if the socket has an error occur
 
@@ -177,10 +177,10 @@ def portscanner3():                                                             
                 print("*" * 80)                                                 #This creates 80 * symbols to tweak the result view in the terminal                                        
                 print("Host found - Starting Port Scan Now")                    #This prints the following statement in the terminal to let the user know that the host was found
                 print("*" * 80)                                                 #This creates 80 * symbols to tweak the result view in the terminal
-        else:                                                                   #This else statment is used when the ip address entered by the user does not use IP notation
+        else:                                                                   #This else statement is used when the ip address entered by the user does not use IP notation
             print("IYou have entered a value that is not an IP Address - Format ###.###.###.###")       #This prints the following statement in the terminal to let the user know that they did not enter the correct ip address formatting
             portscanner3()                                                      #This loops back to the start of this function to prompt the user for an ip address
-    except socket.error:                                                        #This exception is here, just in case the two function above to not determine the ip address as not an ip address - Triple layer input sanitisation
+    except socket.error:                                                        #This exception is here, just in case the two function above to not determine the ip address as not an ip address - Triple layer input sanitization
         print("You have entered a value that is not an IP Address - Format ###.###.###.###")            #This prints the following statement in the terminal to let the user know that they did not input the correct ip address notation.
         portscanner3()                                                          #This loops back to the start of this function to prompt the user for an ip address
 
@@ -209,7 +209,7 @@ def portscanner3():                                                             
     except KeyboardInterrupt:                                                   #This check to see if the user types anything             
         print ("Program Exitting")                                              #This prints the following statement in the terminal
         sys.exit()                                                              #The loop will close if the user types anything into the terminal or presses any keys on their device
-    except socket.error:                                                        #If the socket function has an error such as the socket stream recieving back a misc response, the loop will be exited    
+    except socket.error:                                                        #If the socket function has an error such as the socket stream receiving back a misc response, the loop will be exited    
         print("Not responding")                                                 #This prints the following statement within the terminal
         sys.exit()                                                              #This will exit the following loop if the socket has an error occur
     option = ""                                                                 #This resets the option variable (variable outside loop) so that a loop does not occur with this function
@@ -251,7 +251,7 @@ while True:                                                                     
         print("*" * 80)                                                         #This creates 80 * symbols to tweak the result view in the terminal                                                        
         scanall()                                                               #This calls the scanall function to start the function to return the arp result
         print("-" * 80)                                                         #This creates 80 dash symbols to tweak the result view in the terminal
-        retry = input ("Would you like to see the options agian? (Please type Y or N) - ")                          #This prompts the user to input whether or not the user wants to see the options again to run the tool again
+        retry = input ("Would you like to see the options again? (Please type Y or N) - ")                          #This prompts the user to input whether or not the user wants to see the options again to run the tool again
         if retry == "Y":                                                        #This checks if the user types "Y" to view the options again
             options()                                                           #This calls the option function which displays all the options in this tool
             option = input ("What option would you like? (Please type the option number - Like '1') - ")            #This prompts the user to select an option via their input in the terminal
