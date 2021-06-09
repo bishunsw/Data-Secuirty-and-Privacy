@@ -48,7 +48,7 @@ Hex 3 - 2021 - Data Security and Privacy Assessment 3
 
 ---
 
-## How to use the tool
+# How to use the tool
 
 #### Once you have launched the python file, you will see three options.
 ![Options](https://github.com/bishunsw/Data-Secuirty-and-Privacy/blob/main/Readme%20-%20Images/Options.png)
@@ -61,6 +61,40 @@ Hex 3 - 2021 - Data Security and Privacy Assessment 3
 ##### To quit the tool, you will type "Quit"
 > Any other input will not work and you will receive the following message
 ![OptionNotFound](https://github.com/bishunsw/Data-Secuirty-and-Privacy/blob/main/Readme%20-%20Images/NotFound.png)
+
+---
+
+# Test Inputs and Outputs
+
+### Option 1 Test Output
+![Option1Output](https://github.com/bishunsw/Data-Secuirty-and-Privacy/blob/main/Readme%20-%20Images/OptionTestOutput.png)
+##### As you can see above, this is the test output of option 1 on my current network.
+##### Please note: Some information is redacted but the boxes detail what is hidden underneath
+
+### Option 2 Test Output
+![Option2Output](https://github.com/bishunsw/Data-Secuirty-and-Privacy/blob/main/Readme%20-%20Images/Option2TestOutput.png)
+##### As you can see above, this is the test output of option 2 on my current device.
+##### Please note: Some information is redacted but the boxes detail what is hidden underneath. There is no results as I have filtered most of my ports for security reasons
+
+### Option 3 Test Input
+![Option3Input](https://github.com/bishunsw/Data-Secuirty-and-Privacy/blob/main/Readme%20-%20Images/Option3TestInput.png)
+##### As you can see above, this is the test input of option 3 targeting another device on my network.
+##### Please note: Some information is redacted but the boxes detail what is hidden underneath.
+
+### Option 3 Test Output
+![Option3Output](https://github.com/bishunsw/Data-Secuirty-and-Privacy/blob/main/Readme%20-%20Images/Option3TestOutput.png)
+##### As you can see above, this is the test output of option 3's (test input above) targeting another device on my network.
+##### Please note: Some information is redacted but the boxes detail what is hidden underneath.
+
+### Option 4 Test Inputs **Ports**
+![Option4Input](https://github.com/bishunsw/Data-Secuirty-and-Privacy/blob/main/Readme%20-%20Images/Option4TestInput.png)
+##### As you can see above, this is the test inputs of option 4's for the min and max ports.
+##### Please note: Inputs are sanitized to prevent inputs not being numbers and max being smaller than the min
+
+### Option 4 Test Inputs **IP**
+![Option4InputIP](https://github.com/bishunsw/Data-Secuirty-and-Privacy/blob/main/Readme%20-%20Images/Option4TestInputIP.png)
+##### As you can see above, this is the test inputs of option 4's for the IP address.
+##### Please note: Inputs are sanitized to prevent inputs having text added before the IP address or after an IP address
 
 ---
 
