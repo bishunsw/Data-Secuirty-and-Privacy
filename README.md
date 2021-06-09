@@ -54,10 +54,10 @@ Hex 3 - 2021 - Data Security and Privacy Assessment 3
 ![Options](https://github.com/bishunsw/Data-Secuirty-and-Privacy/blob/main/Readme%20-%20Images/Options.png)
 
 #### To select options, you will type the corresponding option number
-##### For option 1, you will type "1"
-##### For option 2, you will type "2"
-##### For option 3, you will type "3"
-##### For option 4, you will type "4"
+##### For option 1, you will type "1" - You won't need to enter anything
+##### For option 2, you will type "2" - You won't need to enter anything
+##### For option 3, you will type "3" - You will need to enter in an IP address of another device you would like to scan
+##### For option 4, you will type "4" - You will need to enter a min, max port number and IP address of another device you would like to scan
 ##### To quit the tool, you will type "Quit"
 > Any other input will not work and you will receive the following message
 ![OptionNotFound](https://github.com/bishunsw/Data-Secuirty-and-Privacy/blob/main/Readme%20-%20Images/NotFound.png)
