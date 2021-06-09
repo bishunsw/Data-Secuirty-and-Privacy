@@ -1,4 +1,4 @@
-# Data-Secuirty-and-Privacy
+# Data-Security-and-Privacy
 Hex 3 - 2021 - Data Security and Privacy Assessment 3
 
 # Welcome to Michael Bishop's Recon Toolkit
@@ -20,18 +20,18 @@ Hex 3 - 2021 - Data Security and Privacy Assessment 3
 ##### 4. Choose MIN and MAX ports to scan on another device for open ports
 
 ##### Option 1. Allows you to discover devices that are currently on your subnet that you might not be aware about. Optimal utilisation will allow both the hostname and the IP address to appear. 
-###### Please note: Certain enviroment will not resolve the hostname but the IP address will be available still 
+###### Please note: Certain environment will not resolve the hostname but the IP address will be available still 
 
 ##### Option 2. Allows you to view all the open ports on your current device. 
-###### Please note: Ensure your loopback adapter is either disabled and set as secondary priority for network connections. Due to the tool using the host IP, it will grab the 127 address if your loopback adapter is first priority.
+###### Please note: Ensure your loopback adapter is either disabled or set as secondary priority for network connections. Due to the tool using the host IP, it will grab the 127 address if your loopback adapter is first priority.
 ###### Please note: Microsoft Defender and other AVs may prevent the tool discovering all open ports
 
-##### Option 3. ALlows you to view all open ports on a target host
-###### Please note: Ensure your loopback adapter is either disabled and set as secondary priority for network connections. Due to the tool using the host IP, it will grab the 127 address if your loopback adapter is first priority.
+##### Option 3. Allows you to view all open ports on a target host
+###### Please note: Ensure your loopback adapter is either disabled or set as secondary priority for network connections. Due to the tool using the host IP, it will grab the 127 address if your loopback adapter is first priority.
 ###### Please note: Microsoft Defender and other AVs may prevent the tool discovering all open ports
 
 ##### Option 4. Allows you to select the minimum and maximum port numbers you would like to scan on another host to verify what ports are open
-###### Please note: Ensure your loopback adapter is either disabled and set as secondary priority for network connections. Due to the tool using the host IP, it will grab the 127 address if your loopback adapter is first priority.
+###### Please note: Ensure your loopback adapter is either disabled or set as secondary priority for network connections. Due to the tool using the host IP, it will grab the 127 address if your loopback adapter is first priority.
 ###### Please note: Microsoft Defender and other AVs may prevent the tool discovering all open ports
 ###### Please note: The program will close if you attempt to enter a value that is not a number in the input fields of the min and max port option
 ---
@@ -59,7 +59,7 @@ Hex 3 - 2021 - Data Security and Privacy Assessment 3
 ##### For option 3, you will type "3"
 ##### For option 4, you will type "4"
 ##### To quit the tool, you will type "Quit"
-> Any other input will not work and you will recieve the following message
+> Any other input will not work and you will receive the following message
 ![OptionNotFound](https://github.com/bishunsw/Data-Secuirty-and-Privacy/blob/main/Readme%20-%20Images/NotFound.png)
 
 ---
