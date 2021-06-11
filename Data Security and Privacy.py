@@ -90,7 +90,7 @@ def portscanner2():                                                             
                 print("Host found - Starting Port Scan Now")                    #This prints the following statement in the terminal to let the user know that the host was found
                 print("*" * 80)                                                 #This creates 80 * symbols to tweak the result view in the terminal
         else:                                                                   #This else statement is used when the ip address entered by the user does not use IP notation
-            print("IYou have entered a value that is not an IP Address - Format ###.###.###.###")       #This prints the following statement in the terminal to let the user know that they did not enter the correct ip address formatting
+            print("You have entered a value that is not an IP Address - Format ###.###.###.###")       #This prints the following statement in the terminal to let the user know that they did not enter the correct ip address formatting
             portscanner2()                                                      #This loops back to the start of this function to prompt the user for an ip address
     except socket.error:                                                        #This exception is here, just in case the two function above to not determine the ip address as not an ip address - Triple layer input sanitization
         print("You have entered a value that is not an IP Address - Format ###.###.###.###")            #This prints the following statement in the terminal to let the user know that they did not input the correct ip address notation.
